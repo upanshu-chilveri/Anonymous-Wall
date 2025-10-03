@@ -1,28 +1,33 @@
-const scriptURL =
-    "https://script.google.com/macros/s/AKfycbzt4WwXnNjz8KrVgqMU-5Q1nMCUnnZ05XHZPSuU1--0qWKAO1tggd6VnegPgL1lc4TsiA/exec";
-const form = document.getElementById("myForm");
-const msg = document.getElementById("msg");
+const form = document.getElementById('myForm'); // 1. Get the form element
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxiAnl8kZCrkYH54jhRYIWln_m2w-2q71VmN1vQT37bXANaA6jrQXyryHel-XE3H1j9OQ/exec'; // 2. Replace with your actual Web App URL
+const submitButton = document.getElementById('submit-btn');
+const messageStatus = document.getElementById('statusMessage');
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const data = {
-        name: document.getElementById("message-psuedo-name"),
-        message: document.getElementById("message-text")
-    };
+form.addEventListener('submit', e => {
+    e.preventDefault(); // 3. Stop the default form submission
 
-    fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
+    // Disable button and show loading status
+    submitButton.disabled = true;
+    messageStatus.textContent = 'Sending...';
+
+    // 4. Create a FormData object from the form
+    fetch(scriptURL, { 
+        method: 'POST', 
+        body: new FormData(form) 
     })
-    //need to implement this afterwardss :popup message
-        .then((res) => res.json())
-        .then((res) => {
-            msg.innerText = "✅ Data saved to Google Sheets!";
-            form.reset();
-        })
-        .catch((err) => {
-            msg.innerText = "❌ Error: " + err;
-        });
-
+    .then(response => {
+        // Success response from Apps Script
+        messageStatus.textContent = '✅ Message sent successfully!';
+        form.reset(); // Clear the form fields
+        console.log('Success!', response);
+    })
+    .catch(error => {
+        // Handle any network or script errors
+        messageStatus.textContent = '❌ An error occurred. Please try again.';
+        console.error('Error!', error.message);
+    })
+    .finally(() => {
+        // Re-enable the submit button
+        submitButton.disabled = false;
+    });
 });
