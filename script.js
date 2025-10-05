@@ -1,9 +1,9 @@
-const form = document.getElementById('myForm'); // 1. Get the form element
+const form1 = document.getElementById('myForm'); // 1. Get the form element
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxiAnl8kZCrkYH54jhRYIWln_m2w-2q71VmN1vQT37bXANaA6jrQXyryHel-XE3H1j9OQ/exec'; // 2. Replace with your actual Web App URL
 const submitButton = document.getElementById('submit-btn');
 const messageStatus = document.getElementById('statusMessage');
 
-form.addEventListener('submit', e => {
+form1.addEventListener('submit', e => {
     e.preventDefault(); // 3. Stop the default form submission
 
     // Disable button and show loading status
@@ -13,12 +13,12 @@ form.addEventListener('submit', e => {
     // 4. Create a FormData object from the form
     fetch(scriptURL, { 
         method: 'POST', 
-        body: new FormData(form) 
+        body: new FormData(form1) 
     })
     .then(response => {
         // Success response from Apps Script
         messageStatus.textContent = '✅ Message sent successfully!';
-        form.reset(); // Clear the form fields
+        form1.reset(); // Clear the form fields
         console.log('Success!', response);
     })
     .catch(error => {
@@ -31,3 +31,4 @@ form.addEventListener('submit', e => {
         submitButton.disabled = false;
     });
 });
+
