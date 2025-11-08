@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anonymous Wall</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+    <script src="sticky_notes.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light custom-navbar px-4">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="https://ih1.redbubble.net/image.4165549242.7538/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
+            alt="Logo"
+            class="navbar-logo me-2"
+          />
+          <span class="brand-name">Anonymous Wall</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse d-lg-block" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="confessions.html">Confessions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="submit.html">Submit</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section class="section-card" data-aos="fade-up">
+      <div class="container py-5">
+        <h2 class="section-title" data-aos="fade-up">
+          🔥 Recent Confessions (Last 30 Days)
+        </h2>
+
+        <main
+          id="notes-container"
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 p-8 mt-16 font-size-26px"
+        ></main>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 120,
+        throttleDelay: 100,
+        debounceDelay: 50,
+      });
+    </script>
+  </body>
+</html>
