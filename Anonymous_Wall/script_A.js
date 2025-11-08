@@ -1,10 +1,10 @@
-const form1 = document.getElementById('myForm'); // 1. Get the form element
+const form1 = document.getElementById('confessionForm'); // 1. Get the form element
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxiAnl8kZCrkYH54jhRYIWln_m2w-2q71VmN1vQT37bXANaA6jrQXyryHel-XE3H1j9OQ/exec'; // 2. Replace with your actual Web App URL
 const submitButton = document.getElementById('submit-btn');
 const messageStatus = document.getElementById('statusMessage');
 
 form1.addEventListener('submit', e => {
-    e.preventDefault(); // 3. Stop the default form submission
+    e.preventDefault();
 
     // Disable button and show loading status
     submitButton.disabled = true;
